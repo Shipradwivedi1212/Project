@@ -1,0 +1,11 @@
+const express = require('express');
+const user = require('../Controllers/users');
+const { storeReturnTo } = require('../middleware');
+const passport = require('passport');
+const router = express.Router();
+router.get('/register',user.renderRegister);
+router.post('/register',user.register);
+router.get('/login',user.renderlogin);
+router.post('/login',storeReturnTo,passport.authenticate('local',{failureFlash:true,failureRedirect:'/login'}),user.createlogin);
+router.get('/logout',user.logout);
+module.exports = router;
