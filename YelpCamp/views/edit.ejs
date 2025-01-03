@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="text-center">Edit a Campground</h1>
+    <div class="col-6 offset-3">
+        <form action="/campgrounds/<%=camps._id%>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+          <div class="mb-3" >
+         <label class="form-label" for="title">Add Title</label>
+         <input class="form-control" type="text" id="title" name ="title" value="<%=camps.title%>" required><br>
+        </div>
+        <div class="mb-3" >
+          <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple id = "image" name="image">
+          </div>
+          </div>
+           <div class="mb-3" >
+           <label for="price" class="form-label">Price</label>
+           <div class="input-group">
+           <span class="input-group-text" id="price-label">$</span>
+           <input type="text" class="form-control" id="price" aria-describedby="price-label" placeholder="0.0" name="price" value="<%=camps.price%>" required>
+           </div>
+        </div>
+          <div class="mb-3">
+         <label class="form-label" for="location">Add Location</label>
+         <input class="form-control" type="text" id="location" name ="location" value="<%=camps.location%>" required>
+        </div>
+        <div class="mb-3" >
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="text" id="description" name ="description" required><%=camps.description%></textarea><br>
+           </div>
+           <div class="mb-3">
+            <%camps.image.forEach((img,i) => {%>
+             <img src="<%=img.thumbnail%>" class="img-thumbnail">
+             <div class= "form-check-inline">
+              <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+              </div>
+              <label for="image-<%=i%>">delete?</label>
+            <%})%>
+           </div>
+         <button class="btn btn-success mb-3">UPDATE</button>
+        </form>
+    <a href="/campgrounds/<%=camps._id%>">Back to Campground</a>
+    </div>

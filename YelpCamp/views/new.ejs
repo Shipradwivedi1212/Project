@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="text-center">Add a Campground</h1>
+    <div class="col-6 offset-3">
+        <form action="/campgrounds" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+          <div class="mb-3" >
+         <label class="form-label" for="title">Add Title</label>
+         <input class="form-control" type="text" id="title" name ="title" required><br>
+        </div>
+        <div class="mb-3" >
+          <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple id = "image" name="image">
+          </div>
+          </div>
+        <!--<div class="mb-3" >
+            <label class="form-label" for="image">Image URL</label>
+            <input class="form-control" type="text" id="image" name ="image" required><br>
+           </div>-->
+           <div class="mb-3" >
+           <label for="price" class="form-label">Price</label>
+           <div class="input-group">
+           <span class="input-group-text" id="price-label">$</span>
+           <input type="text" class="form-control" id="price" aria-describedby="price-label" placeholder="0.0" name="price" required>
+           </div>
+        </div>
+          <div class="mb-3">
+         <label class="form-label" for="location">Add Location</label>
+         <input class="form-control" type="text" id="location" name ="location" required>
+        </div>
+        <div class="mb-3" >
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" type="text" id="description" name ="description" required></textarea><br>
+           </div>
+         <button class="btn btn-success mb-3">Submit</button>
+        </form>
+        <a href="/campgrounds">Back to Home Page</a>
+    </div>
+    
+    
+
+    
